@@ -1,0 +1,10 @@
+.loadStyle{
+    padding-top: 15%;
+}
+.center {
+    justify-content: center;
+    display: flex;
+    width: 28rem;
+    margin: auto;
+    text-align: center;
+}

@@ -1,0 +1,41 @@
+<div class="position" *ngIf="!loading">
+  <!-- Search area -->
+  <div class="container mb-2  col-4">
+    <ng-template #rt let-r="result" let-t="term">
+      <ngb-highlight [result]="r.name.official" [term]="t"></ngb-highlight>
+    </ng-template>
+    <input id="typeahead-template" type="text" class="form-control" [(ngModel)]="searchCountry" [ngbTypeahead]="search"
+      [resultTemplate]="rt" [inputFormatter]="formatter" placeholder="Search Country..."
+      (ngModelChange)="searchText()" />
+  </div>
+  <!-- Body Slide-->
+  <div class="carousel">
+    <div *ngFor="let val of storage;let i = index" style="margin-top:3rem">
+      <div [ngClass]="i == collectIndex?'active carousel-item card center ':i == collectIndex+1?
+      'carousel-item-nextt carousel-item card center ':i > collectIndex+2?'d-none':
+      i == collectIndex-1?'carousel-item-prevent carousel-item card center ': i < collectIndex-2?'d-none':'d-none'">
+          <img [src]="val.flags.svg" alt="....." class="card-img-top imgstyle contetnt-fit">
+        <div class="card-body">
+          <h5 class="card-title">{{val.name.official}}</h5>
+          <div class="text-left">
+            <p><small><b>Region:</b>{{val.region}} ({{val.subregion}})</small></p>
+            <p><small><b>Capital city:</b> {{val.capital}}</small></p>
+            <p><small><b>Population:</b> {{val.population | number}}</small></p>
+          </div>
+
+          <a href="#" class="btn btn-primary">More Informations</a>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" role="button" data-slide="prev" (click)="prev()">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" role="button" data-slide="next" (click)="next()">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+
+  </div>
+</div>
+<app-loading *ngIf="loading"></app-loading>

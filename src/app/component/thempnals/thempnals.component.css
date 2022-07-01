@@ -1,0 +1,59 @@
+.center {
+    justify-content: center;
+    display: flex;
+    width: 28rem;
+    margin: auto;
+    text-align: center;
+}
+
+.position {
+    padding-top: 5%;
+}
+
+.carousel-item {
+    /* position: absolute; */
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-animation:  0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: 0.5s forwards;
+    animation-delay: 2s;
+}
+
+.carousel-item-nextt {
+    transform: translateX(30%) scale(0.8);
+    left: 35%;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.carousel-item.active {
+    transform: translateX(25%) scale(1) ;
+    left: 25%;
+    opacity: 1;
+    z-index: 2;
+}
+
+.carousel-item-prevent {
+    transform: translateX(25%) scale(0.8);
+    left: 15%;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.imgstyle {
+    width: 446px;
+    height: 297px;
+    
+}
+.card{
+    background-color: transparent;
+    border: 0;
+}
+.card-body{
+    width: 100%;
+    background-color: white;
+}

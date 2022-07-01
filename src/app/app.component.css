@@ -1,0 +1,11 @@
+.background {
+    /* background-color: darkgrey; */
+    background-image: url('../assets/23779.jpg');
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    height: 100%;
+}
+

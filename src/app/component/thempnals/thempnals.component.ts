@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 import { Observable, OperatorFunction } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map, min } from 'rxjs/operators';
+import { debounceTime, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-thempnals',
@@ -12,7 +12,7 @@ import { debounceTime, distinctUntilChanged, map, min } from 'rxjs/operators';
 
 export class ThempnalsComponent implements OnInit {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private toastrService:ToastrService) { }
   public storage: any = []
   public data: any = []
   private apiurl = 'https://restcountries.com/v3.1/all'
@@ -27,7 +27,7 @@ export class ThempnalsComponent implements OnInit {
   public getInnitalData = async () => {
     await this.http.get(this.apiurl).forEach((res) => {
       this.storage = res
-    }).then(()=> this.loading = false)
+    }).then(() => this.loading = false)
   }
 
   formatter = (x: { official: string }) => x.official;
@@ -37,17 +37,35 @@ export class ThempnalsComponent implements OnInit {
       map(term => term === '' ? []
         : this.storage.filter((v: any) => v.name.official.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
     )
-  searchText() {
-    this.searchCountry = this.searchCountry.name
+  searchText(e: any) {
+    this.searchCountry = e.name
   }
-
+  public onKeydown(e: any) {
+    if (e.keyCode === 13) {
+      this.searchInfo(e.target.value);
+    }
+  }
+  public searchInfo(text: any) {
+    typeof(text) == 'object'? text = text.official : text
+    var valIndex: any
+    valIndex = this.storage.findIndex((res: any) => res.name.official == text)
+    if (valIndex != -1) {
+      this.collectIndex = valIndex
+    }else{
+      console.log('else')
+      this.toastrService.error('Please write name of country and select from suggestion below', 'Not Found', {
+        timeOut: 5000,
+        closeButton:true
+      });
+    }
+  }
   public next() {
-    this.collectIndex = this.collectIndex >= this.storage.length-1 ? 0 : this.collectIndex+ 1
+    this.collectIndex = this.collectIndex >= this.storage.length - 1 ? 0 : this.collectIndex + 1
   }
   public prev() {
-    this.collectIndex = this.collectIndex < 1 ? this.storage.length-1 : this.collectIndex - 1
+    this.collectIndex = this.collectIndex < 1 ? this.storage.length - 1 : this.collectIndex - 1
   }
- 
+
   ngOnInit(): void {
     this.getInnitalData()
   }

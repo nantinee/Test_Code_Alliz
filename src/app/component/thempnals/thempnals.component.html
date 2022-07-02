@@ -1,6 +1,6 @@
 <div class="position" *ngIf="!loading">
   <!-- Search area -->
-  <div class="container mb-2  col-4">
+  <div class="container mb-2  col-md-4 col-sm-12">
     <ng-template #rt let-r="result" let-t="term">
       <ngb-highlight [result]="r.name.official" [term]="t"></ngb-highlight>
     </ng-template>
@@ -15,7 +15,7 @@
   </div>
   <!-- Body Slide-->
   <div>
-    <div *ngFor="let val of storage;let i = index" class="mt-5">
+    <div *ngFor="let val of storage;let i = index" class="mt-2 top-space">
       <div [ngClass]="i == collectIndex?'active carousel-item card center ':i == collectIndex+1?
       'carousel-item-nextt carousel-item card center ':i > collectIndex+2?'d-none':
       i == collectIndex-1?'carousel-item-prevent carousel-item card center ': i < collectIndex-2?'d-none':'d-none'">

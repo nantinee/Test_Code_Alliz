@@ -11,49 +11,109 @@
 }
 
 .carousel-item {
-    /* position: absolute; */
+    position: absolute;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
-    -webkit-animation:  0.5s forwards;
+    -webkit-animation: 0.5s forwards;
     -webkit-animation-delay: 2s;
     animation: 0.5s forwards;
     animation-delay: 2s;
 }
 
 .carousel-item-nextt {
-    transform: translateX(30%) scale(0.8);
-    left: 35%;
+    transform: translateX(25%) scale(0.8) !important;
+    left: 40% !important;
     opacity: 0.3;
     z-index: 1;
 }
 
 .carousel-item.active {
-    transform: translateX(25%) scale(1) ;
-    left: 25%;
+    transform: translateX(20%) scale(1) !important;
+    left: 25% !important;
     opacity: 1;
     z-index: 2;
 }
 
 .carousel-item-prevent {
-    transform: translateX(25%) scale(0.8);
-    left: 15%;
+    transform: translateX(25%) scale(0.8) !important;
+    left: 5% !important;
     opacity: 0.3;
     z-index: 1;
 }
 
-.imgstyle {
-    width: 446px;
-    height: 297px;
-    
-}
-.card{
-    background-color: transparent;
+.card {
     border: 0;
+    width: 50%;
 }
-.card-body{
-    width: 100%;
-    background-color: white;
+
+
+
+@media screen and (min-width:320px) and (min-height:560px) {
+    .carousel-item-nextt {
+        width: 40%;
+        height: fit-content;
+    }
+
+    .carousel-item.active {
+        width: 50%;
+        height: fit-content;
+        left: 17% !important;
+    }
+
+    .carousel-item-prevent {
+        width: 40%;
+        height: fit-content;
+    }
+    .top-space{
+        margin-top: 5rem !important;
+    }
+}
+
+@media screen and (max-height:414px) {
+    p {
+        font-size: x-small;
+    }
+
+    h5 {
+        font-size: small;
+    }
+
+    .imgstyle {
+        height: 100px !important;
+    }
+
+    .btn {
+        font-size: xx-small;
+    }
+
+    .position {
+        padding-top: 1px !important;
+    }
+
+    .form-control {
+        font-size: 10px;
+    }
+    .top-space{
+        margin-top: 0rem !important;
+    }
+    .card {
+        width: 40%;
+    }
+
+}
+
+@media screen and (min-width:1024px) {
+    .imgstyle {
+        height: 297px !important;
+    }
+
+}
+
+.icon-search {
+    position: absolute;
+    top: 25%;
+    right: 10%;
 }

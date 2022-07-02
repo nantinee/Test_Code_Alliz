@@ -50,10 +50,14 @@
 }
 
 
-
+@media screen and (max-width:350px){
+    .top-space{
+        margin-top: 1rem;
+    }
+}
 @media screen and (min-width:320px) and (min-height:560px) {
     .carousel-item-nextt {
-        width: 40%;
+        width: 45%;
         height: fit-content;
     }
 
@@ -64,11 +68,18 @@
     }
 
     .carousel-item-prevent {
-        width: 40%;
+        width: 45%;
         height: fit-content;
     }
     .top-space{
-        margin-top: 5rem !important;
+        margin-top: 5rem;
+    }
+    .btn{
+        font-size: small;
+    }
+    .form-control {
+        font-size: 10px;
+        margin-bottom: 0;
     }
 }
 
@@ -105,11 +116,31 @@
 
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width:1023px) {
     .imgstyle {
         height: 297px !important;
     }
+    .form-control {
+        font-size: 1rem;
+    }
+    .carousel-item-nextt {
+        width: 40%;
+        left: 40% !important;
+    }
 
+    .carousel-item.active {
+        width: 40%;
+        left: 25% !important;
+    }
+
+    .carousel-item-prevent {
+        width: 40%;
+        left: 5% !important;
+    }
+    .content{
+        display: flex !important;
+        justify-content: center !important;
+    }
 }
 
 .icon-search {
@@ -117,3 +148,32 @@
     top: 25%;
     right: 10%;
 }
+@media screen and (min-height:1023px) {
+    .top-space{
+        margin-top: 10rem ;
+    }
+}
+@media screen and (min-height:1365px) {
+    .top-space{
+        margin-top: 30rem !important;
+    }
+}
+@media screen and (min-width:1920px) {
+    .carousel-item-nextt {
+        width: 30%;
+        left: 45% !important;
+    }
+
+    .carousel-item.active {
+        width: 30%;
+        left: 30% !important;
+    }
+
+    .carousel-item-prevent {
+        width: 30%;
+        left: 10% !important;
+    }
+}
+select.form-control:not([size]):not([multiple]) {
+    height: 100%;
+    }

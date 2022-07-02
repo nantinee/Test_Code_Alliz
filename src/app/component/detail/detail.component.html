@@ -1,1 +1,47 @@
-<p>detail works!</p>
+<div>
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="w-50 h-50 card">
+            <img [src]="coreData.flags.png" />
+        </div>
+    </div>
+
+    <table class="mt-1 table table-striped table-hover text-white">
+        <thead>
+            <tr>
+                <th class="col-6">Toppic</th>
+                <th class="col-6">Detail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="col-6">
+                    <p><b>Official name :</b></p>
+                    <p><b>Common name :</b></p>
+                    <p><b>Capital name :</b></p>
+                    <p><b>Continents:</b></p>
+                    <p><b>Currencies :</b></p>
+                    <p><b>Languages :</b></p>
+                    <p><b>Google Map :</b></p>
+                    <p><b>Street view :</b></p>
+                    <p><b>Region/SubRegion :</b></p>
+                    <p><b>Timezones :</b></p>
+                </td>
+                <td class="col-6">
+                    <p>{{coreData.name.official}}</p>
+                    <p>{{coreData.name.common}} {{coreData.flag}}</p>
+                    <p>{{coreData.capital}} </p>
+                    <p>{{coreData.continents}} </p>
+                    <p>{{coreData.currencies.name}} {{coreData.currencies.symbol}}</p>
+                    <div class="d-flex">
+                        <p *ngFor="let lang of coreData.languages" >{{lang}},</p>
+                    </div>
+                    <p><a target="_blank" [href]="coreData.maps.googleMaps">Click Link</a></p>
+                    <p><a target="_blank" [href]="coreData.maps.openStreetMaps">Click Link</a></p>
+                    <p>{{coreData.region}} / {{coreData.subregion}}</p>
+                    <p>{{coreData.timezones}}</p>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

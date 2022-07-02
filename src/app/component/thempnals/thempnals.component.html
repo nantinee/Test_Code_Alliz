@@ -5,16 +5,21 @@
       <ngb-highlight [result]="r.name.official" [term]="t"></ngb-highlight>
     </ng-template>
     <input id="typeahead-template" type="text" class="form-control" [(ngModel)]="searchCountry" [ngbTypeahead]="search"
-      [resultTemplate]="rt" [inputFormatter]="formatter" placeholder="Search Country..."
-      (ngModelChange)="searchText()" />
+      [resultTemplate]="rt" [inputFormatter]="formatter" placeholder="Search Country..." (ngModelChange)="searchText($event)"
+      (keydown.enter)="onKeydown($event)" />
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search icon-search"
+      viewBox="0 0 16 16" (click)="searchInfo(searchCountry)">
+      <path
+        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+    </svg>
   </div>
   <!-- Body Slide-->
-  <div class="carousel">
-    <div *ngFor="let val of storage;let i = index" style="margin-top:3rem">
+  <div>
+    <div *ngFor="let val of storage;let i = index" class="mt-5">
       <div [ngClass]="i == collectIndex?'active carousel-item card center ':i == collectIndex+1?
       'carousel-item-nextt carousel-item card center ':i > collectIndex+2?'d-none':
       i == collectIndex-1?'carousel-item-prevent carousel-item card center ': i < collectIndex-2?'d-none':'d-none'">
-          <img [src]="val.flags.svg" alt="....." class="card-img-top imgstyle contetnt-fit">
+        <img [src]="val.flags.svg" alt="....." class="card-img-top imgstyle contetnt-fit">
         <div class="card-body">
           <h5 class="card-title">{{val.name.official}}</h5>
           <div class="text-left">
@@ -27,14 +32,17 @@
         </div>
       </div>
     </div>
-    <a class="carousel-control-prev" role="button" data-slide="prev" (click)="prev()">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" role="button" data-slide="next" (click)="next()">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+    <div class="arrow-position">
+      <a class="carousel-control-prev" role="button" data-slide="prev" (click)="prev()">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" role="button" data-slide="next" (click)="next()">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
 
   </div>
 </div>

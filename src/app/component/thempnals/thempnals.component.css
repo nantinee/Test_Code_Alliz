@@ -25,21 +25,21 @@
 
 .carousel-item-nextt {
     transform: translateX(25%) scale(0.8) !important;
-    left: 40% !important;
+    left: 40% ;
     opacity: 0.3;
     z-index: 1;
 }
 
 .carousel-item.active {
     transform: translateX(20%) scale(1) !important;
-    left: 25% !important;
+    left: 25% ;
     opacity: 1;
     z-index: 2;
 }
 
 .carousel-item-prevent {
     transform: translateX(25%) scale(0.8) !important;
-    left: 5% !important;
+    left: 5% ;
     opacity: 0.3;
     z-index: 1;
 }
@@ -50,12 +50,7 @@
 }
 
 
-@media screen and (max-width:350px){
-    .top-space{
-        margin-top: 1rem;
-    }
-}
-@media screen and (min-width:320px) and (min-height:560px) {
+@media screen and (min-width:320px) and (min-height:501px) {
     .carousel-item-nextt {
         width: 45%;
         height: fit-content;
@@ -71,19 +66,43 @@
         width: 45%;
         height: fit-content;
     }
-    .top-space{
+
+    .top-space {
         margin-top: 5rem;
     }
-    .btn{
+
+    .btn {
         font-size: small;
     }
+
     .form-control {
         font-size: 10px;
         margin-bottom: 0;
     }
-}
 
-@media screen and (max-height:414px) {
+    .col-md-6 {
+        flex: initial;
+        display: inline-table;
+    }
+
+}
+@media only screen and (min-width:613px) and (max-height:768px) {
+    .carousel-item-nextt {
+        width: 35%;
+        left: 40% !important;
+    }
+
+    .carousel-item.active {
+        width: 35%;
+        left: 25% !important;
+    }
+
+    .carousel-item-prevent {
+        width: 35%;
+        left: 5% !important;
+    }
+}
+@media only screen and (min-height:320px) and (max-height:500px) {
     p {
         font-size: x-small;
     }
@@ -93,7 +112,7 @@
     }
 
     .imgstyle {
-        height: 100px !important;
+        height: 100px;
     }
 
     .btn {
@@ -107,22 +126,38 @@
     .form-control {
         font-size: 10px;
     }
-    .top-space{
+
+    .top-space {
         margin-top: 0rem !important;
     }
+
     .card {
         width: 40%;
     }
 
+    p {
+        margin-bottom: 10px;
+    }
+
+    .imgstyle {
+        width: 200px;
+    }
+
+    .content {
+        display: flex !important;
+        justify-content: center !important;
+    }
 }
 
 @media screen and (min-width:1023px) {
     .imgstyle {
         height: 297px !important;
     }
+
     .form-control {
         font-size: 1rem;
     }
+
     .carousel-item-nextt {
         width: 40%;
         left: 40% !important;
@@ -137,10 +172,7 @@
         width: 40%;
         left: 5% !important;
     }
-    .content{
-        display: flex !important;
-        justify-content: center !important;
-    }
+
 }
 
 .icon-search {
@@ -148,16 +180,23 @@
     top: 25%;
     right: 10%;
 }
+
 @media screen and (min-height:1023px) {
-    .top-space{
-        margin-top: 10rem ;
+    .top-space {
+        margin-top: 10rem;
+    }
+
+    .icon-search {
+        top: 15% !important;
     }
 }
+
 @media screen and (min-height:1365px) {
-    .top-space{
-        margin-top: 30rem !important;
+    .top-space {
+        margin-top: 25rem !important;
     }
 }
+
 @media screen and (min-width:1920px) {
     .carousel-item-nextt {
         width: 30%;
@@ -174,6 +213,24 @@
         left: 10% !important;
     }
 }
+
 select.form-control:not([size]):not([multiple]) {
     height: 100%;
+}
+
+/* @media (min-width:320px) {
+    .content{
+        display: flex !important;
+        justify-content: center !important;
     }
+    .card{
+        width: 35%;
+    }
+    p{margin-bottom: 10px;}
+    .imgstyle{
+        width: 200px;
+    }
+    .icon-search{
+        top: 15%;
+    }
+} */

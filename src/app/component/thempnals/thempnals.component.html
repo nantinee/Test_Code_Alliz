@@ -1,8 +1,8 @@
 <div class="position" *ngIf="!loading">
   <!-- Search area -->
-  <div class="container mb-2 content ">
+  <div class="container mb-2 content">
     <!-- Text search -->
-    <div class="col-md-5 col-sm-12 mt-1">
+    <div class="col-lg-5 col-md-6 col-sm-12 mt-1">
       <ng-template #rt let-r="result" let-t="term">
         <ngb-highlight [result]="r.name.official" [term]="t"></ngb-highlight>
       </ng-template>
@@ -16,7 +16,7 @@
       </svg>
     </div>
     <!-- selection search -->
-    <div class="col-md-4 col-sm-12 mt-1">
+    <div class="col-lg-4 col-md-6 col-sm-12 mt-1">
       <div class="form-group">
         <select  class="form-control" [ngModel]="selectedContinents" (ngModelChange)="selectedListFromContinents($event)">
           <option value="0">All Continents</option>

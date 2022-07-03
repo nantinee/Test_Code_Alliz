@@ -18,7 +18,8 @@
     <!-- selection search -->
     <div class="col-lg-4 col-md-6 col-sm-12 mt-1">
       <div class="form-group">
-        <select  class="form-control" [ngModel]="selectedContinents" (ngModelChange)="selectedListFromContinents($event)">
+        <select class="form-control" [ngModel]="selectedContinents"
+          (ngModelChange)="selectedListFromContinents($event)">
           <option value="0">All Continents</option>
           <option *ngFor="let item of listContinents" [value]="item">{{item}}</option>
         </select>
@@ -56,17 +57,17 @@
       </a>
     </div>
     <!-- Modal Detail -->
-    <ng-template #content let-c="close" let-d="dismiss" >
-      <div class="bg-secondary text-white">
-        <div class="modal-header text-white">
-        <h4 class="modal-title" id="modal-basic-title">Detail of {{sentData.name.common}}</h4>
-        <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+    <ng-template #content let-c="close" let-d="dismiss">
+      <div class=" text-white">
+        <div class="modal-header text-white bg-secondary">
+          <h4 class="modal-title" id="modal-basic-title">Detail of {{sentData.name.common}}</h4>
+          <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+          <app-detail [coreData]="sentData"></app-detail>
+        </div>
       </div>
-      <div class="modal-body">
-        <app-detail [coreData]="sentData"></app-detail>
-      </div>
-      </div>
-      
+
     </ng-template>
   </div>
 </div>

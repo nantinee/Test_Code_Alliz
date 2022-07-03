@@ -83,7 +83,6 @@ export class ThempnalsComponent implements OnInit {
   }
   public selectedListFromContinents(e: any) {
     let new_list: any = []
-    console.log(e)
     this.selectedContinents = e
     this.data = this.storage.map((res: any) => {
       if (res.continents[0] == e) {

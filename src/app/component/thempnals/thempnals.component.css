@@ -217,20 +217,3 @@
 select.form-control:not([size]):not([multiple]) {
     height: 100%;
 }
-
-/* @media (min-width:320px) {
-    .content{
-        display: flex !important;
-        justify-content: center !important;
-    }
-    .card{
-        width: 35%;
-    }
-    p{margin-bottom: 10px;}
-    .imgstyle{
-        width: 200px;
-    }
-    .icon-search{
-        top: 15%;
-    }
-} */

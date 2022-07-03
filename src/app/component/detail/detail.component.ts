@@ -21,8 +21,6 @@ export class DetailComponent implements OnInit,OnChanges {
         languages:Object.values(new_Data.languages)
       }
       this.coreData = new_Data
-      
-      console.log(this.coreData)
     }
   }
 
